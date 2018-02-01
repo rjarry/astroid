@@ -48,6 +48,7 @@ namespace Astroid {
   ThreadView::ThreadView (MainWindow * mw) : Mode (mw) { //
     const ptree& config = astroid->config ("thread_view");
     indent_messages = config.get<bool> ("indent_messages");
+    fancy_quotes = config.get<bool>("fancy_quotes");
     open_html_part_external = config.get<bool> ("open_html_part_external");
     open_external_link = config.get<string> ("open_external_link");
 
@@ -1131,7 +1132,7 @@ namespace Astroid {
     webkit_dom_element_remove_attribute (WEBKIT_DOM_ELEMENT (body_container),
         "id");
 
-    ustring body = c->viewable_text (true, true);
+    ustring body = c->viewable_text (true, true, fancy_quotes);
 
     if (code_is_on) {
       if (message->is_patch ()) {

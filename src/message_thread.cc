@@ -288,7 +288,7 @@ namespace Astroid {
     root = refptr<Chunk>(new Chunk (g_mime_message_get_mime_part (message)));
   }
 
-  ustring Message::viewable_text (bool html, bool fallback_html) {
+  ustring Message::viewable_text (bool html, bool fallback_html, bool strip_quotes) {
     /* build message body:
      * html:      output html (using gmimes html filter)
      *
@@ -330,7 +330,7 @@ namespace Astroid {
 
       if (use) {
         if (c->viewable && (c->preferred || html || fallback_html)) {
-          body += c->viewable_text (html);
+          body += c->viewable_text (html, false, strip_quotes);
         }
 
         for_each (c->kids.begin(),

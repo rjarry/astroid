@@ -47,6 +47,10 @@ typedef struct _GMimeFilterHTMLBQClass GMimeFilterHTMLBQClass;
  **/
 #define GMIME_FILTER_HTML_BQ_BLOCKQUOTE_CITATION (1 << 8)
 
+/*
+ * Strip raw plain text quote markers.
+ **/
+#define GMIME_FILTER_HTML_STRIP_QUOTE_CHARS (1 << 9)
 
 /**
  * GMimeFilterHTMLBQ:

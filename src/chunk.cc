@@ -231,7 +231,7 @@ namespace Astroid {
 
   }
 
-  ustring Chunk::viewable_text (bool html = true, bool verbose) {
+  ustring Chunk::viewable_text (bool html = true, bool verbose, bool fancy_quotes) {
     if (isencrypted && !crypt->decrypted) {
       if (verbose) {
       /* replace newlines */
@@ -274,6 +274,9 @@ namespace Astroid {
                                     GMIME_FILTER_HTML_CONVERT_URLS |
                                     GMIME_FILTER_HTML_CONVERT_ADDRESSES |
                                     GMIME_FILTER_HTML_BQ_BLOCKQUOTE_CITATION ;
+        if (fancy_quotes) {
+          html_filter_flags |= GMIME_FILTER_HTML_STRIP_QUOTE_CHARS;
+        }
 
         /* convert encoding */
         GMimeContentEncoding enc = g_mime_data_wrapper_get_encoding (content);

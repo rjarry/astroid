@@ -408,7 +408,9 @@ html_convert (GMimeFilter *filter, char *in, size_t inlen, size_t prespace,
           outptr = g_stpcpy (outptr, bq);
         }
 
-        start = citation_cut(start, inptr);
+        if (html->flags & GMIME_FILTER_HTML_STRIP_QUOTE_CHARS) {
+          start = citation_cut(start, inptr);
+        }
 
       } else if (html->prev_cit_depth > depth) {
 
@@ -419,10 +421,14 @@ html_convert (GMimeFilter *filter, char *in, size_t inlen, size_t prespace,
           html->prev_cit_depth--;
         }
 
-        start = citation_cut(start, inptr);
+        if (html->flags & GMIME_FILTER_HTML_STRIP_QUOTE_CHARS) {
+          start = citation_cut(start, inptr);
+        }
 
       } else if (depth > 0) {
-        start = citation_cut(start, inptr);
+        if (html->flags & GMIME_FILTER_HTML_STRIP_QUOTE_CHARS) {
+          start = citation_cut(start, inptr);
+        }
 
 			} else if (start < inptr && *start == '>') {
 				/* >From line */

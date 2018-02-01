@@ -231,6 +231,10 @@ namespace Astroid {
      *            'attachment.external_open_cmd'. */
     default_config.put ("thread_view.open_html_part_external", false);
 
+    /* Convert plain text quotes '> ' to HTML styled quotes
+     * Set to false to preserve raw plain text quotes */
+    default_config.put ("thread_view.fancy_quotes", true);
+
     /*   if a link is clicked (html, ftp, etc..) it is executed with this
      *   command. */
     default_config.put ("thread_view.open_external_link", "xdg-open");

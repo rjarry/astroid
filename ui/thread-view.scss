@@ -30,6 +30,8 @@ $quote-color1: #5555ee !default;
 $quote-color2: #425c78 !default;
 $quote-color3: #729fcf !default;
 
+$fancy-quotes: astroid-config("thread_view.fancy_quotes", true) !default;
+
 @media print {
 
     body {
@@ -900,18 +902,23 @@ body:not(.nohide) .quote_container.controllable.show > .quote {
 }
 
 blockquote {
-    margin: 0px 10px 0px 10px;
-    padding-left: 15px;
-    padding-right: 15px;
     border: 0;
-    border-left-width: 0.2em;
-    border-left-style: solid;
-    border-left-color: $quote-color1;
     color: $quote-color1;
 
-    .level_001 {
-        margin-bottom: 0px;
-        margin-top: 0px;
+    @if $fancy-quotes {
+        margin: 0px 10px 0px 10px;
+        padding-left: 15px;
+        padding-right: 15px;
+        border-left-width: 0.2em;
+        border-left-style: solid;
+        border-left-color: $quote-color1;
+
+        .level_001 {
+            margin-bottom: 0px;
+            margin-top: 0px;
+        }
+    } @else {
+        margin: 0;
     }
 
     $quote-colors: $quote-color3 $quote-color1 $quote-color2;

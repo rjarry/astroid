@@ -29,7 +29,7 @@ namespace Astroid {
 
       ustring get_content_type ();
 
-      ustring viewable_text (bool, bool verbose = false);
+      ustring viewable_text (bool, bool verbose = false, bool fancy_quotes = true);
 
       std::vector<refptr<Chunk>> kids;
       std::vector<refptr<Chunk>> siblings;

@@ -222,6 +222,7 @@ namespace Astroid {
       void message_render_tags (refptr<Message>, WebKitDOMElement * div_message);
       void message_update_css_tags (refptr<Message>, WebKitDOMElement * div_message);
 
+      bool fancy_quotes;
       bool open_html_part_external;
       void display_part (refptr<Message>, refptr<Chunk>, MessageState::Element);
 
