@@ -333,6 +333,7 @@ add_library(
   src/modes/thread_index/thread_index_list_cell_renderer.cc
   src/modes/thread_index/thread_index_list_view.cc
 
+  src/modes/thread_view/csscolorparser.cpp
   src/modes/thread_view/dom_utils.cc
   src/modes/thread_view/theme.cc
   src/modes/thread_view/thread_view.cc
